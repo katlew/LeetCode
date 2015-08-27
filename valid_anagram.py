@@ -3,31 +3,16 @@
 
 class Solution(object):
     def isAnagram(self, s, t):
-        if len(s) is not len(t):
+        if len(s) != len(t):
             return False
         dict = {};
         sArray = list(s)
         tArray = list(t)
-        updatedCount = 0;
-        solution = True
         # initialize dictionary with all of the keys / letters
         for i in sArray:
-            count = dict[i]+1 if dict.has_key(i) else 1
-            dict.update({i:count})
-        size = len(sArray)
+            dict[i] = dict[i]+1 if dict.has_key(i) else 1
         for i in tArray:
-            # print dict.items()
-            if dict.has_key(i):
-                # decrement the count of the value if tArray has the same char
-                updatedCount = dict[i]-1
-                # print size
-                if updatedCount >= 0:
-                    dict.update({i:updatedCount})
-                    size = size - 1
-                else:
-                    return False
-        print dict.items()
-        print size
-        solution = True if size == 0 else False
-        # print solution
-        return solution
+            dict[i] = dict[i]-1 if dict.has_key(i) else -1
+            if dict[i] < 0:
+                return False 
+        return True
