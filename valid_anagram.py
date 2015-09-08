@@ -14,5 +14,5 @@ class Solution(object):
         for i in tArray:
             dict[i] = dict[i]-1 if dict.has_key(i) else -1
             if dict[i] < 0:
-                return False 
+                return False
         return True
