@@ -1,9 +1,9 @@
 
 class Solution(object):
 	def isPowerOfTwo(self, n):
-        while n % 2 == 0 and n > 1
-        	n /= 2
-        return n == 1
+		while n % 2 == 0 and n > 1:
+			n /= 2
+		return n == 1
 
 """
 http://www.exploringbinary.com/ten-ways-to-check-if-an-integer-is-a-power-of-two-in-c/
