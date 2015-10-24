@@ -17,7 +17,7 @@ class Stack(object):
         return self.queue1[-1]
         
     def empty(self):                
-        return not self.queue1[-1]
+        return not self.queue1
 
     def move(self):
         # move elements from stack 1 to stack 2
