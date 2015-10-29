@@ -1,10 +1,6 @@
 
 class Solution(object):
     def isValidSudoku(self, board):
-        """
-        :type board: List[List[str]]
-        :rtype: bool
-        """
         for i in xrange(9):
             horiz, vert = dict(), dict()
             for j in xrange(9):
@@ -12,12 +8,10 @@ class Solution(object):
                     pass
                 elif board[i][j] in horiz:
                     return False
-                elif board[j][i] in vert:
-                    return False
                 else:
                     horiz[board[i][j]] = True
                 if board[j][i] == '.':
-                    False
+                    pass
                 elif board[j][i] in vert:
                     return False
                 else:
