@@ -21,9 +21,9 @@ class Solution {
             int i,j;
             vector<int> solution;
 
-            for(i=0;i<=nums.size();i++)
+            for(i=0; i < nums.size()-1; ++i)
             {
-                for(j=i+1;j<=nums.size()-1;j++)
+                for(j=i+1; j < nums.size(); ++j)
                 {
                     if(nums[i]+nums[j] == target)
                     {

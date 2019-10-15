@@ -17,7 +17,7 @@ return [0, 1].
 
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
-        for(int i = 0; i < nums.Length; ++i)
+        for(int i = 0; i < nums.Length-1; ++i)
         {
         	for(int j = i+1; j < nums.Length; ++j)
         	{
@@ -34,7 +34,8 @@ public class Solution {
 /*
 Complexity Analysis
 
-Time complexity : O(n^2) For each element, we try to find its complement by looping through the rest of array which takes O(n)O(n) time. 
+Time complexity : O(n^2) For each element, we try to find its complement 
+by looping through the rest of array which takes O(n)O(n) time. 
 Therefore, the time complexity is O(n^2)
 
 Space complexity : O(1) 
