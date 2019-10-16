@@ -25,6 +25,21 @@ Beware that the complement must not be nums[i] itself!
 class Solution {
     public:
         vector<int> twoSum(vector<int> &nums, int target){
-            
+            map<int, int> m = {};
+            vector<int> solution;
+
+            for (int i = 0; i < nums.size(); ++i)
+            {
+                map.insert(pair<int, int>(nums[i], i));
+            }
+
+            for(int i = 0; i < nums.size(); ++i)
+            {
+                int complement = target - nums[i];
+                if (map.find(complement) && map[complement] != i)
+                {
+                    solution.push_back(i, map[complement]);
+                }
+            }
         }
 }
