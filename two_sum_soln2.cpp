@@ -36,9 +36,9 @@ class Solution {
             for(int i = 0; i < nums.size(); ++i)
             {
                 int complement = target - nums[i];
-                if (map.find(complement) && map[complement] != i)
+                if (map.find(complement) && map.at(complement).second != i)
                 {
-                    solution.push_back(i, map[complement]);
+                    solution.push_back(i, map.at(complement).second);
                 }
             }
         }
