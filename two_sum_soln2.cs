@@ -1,9 +1,11 @@
 /*
 Two Sum
 Approach 2: Two-pass Hash Table
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+Given an array of integers, return indices of the two numbers 
+such that they add up to a specific target.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You may assume that each input would have exactly one solution, 
+and you may not use the same element twice.
 
 Example:
 
@@ -14,8 +16,10 @@ return [0, 1].
 
 A simple implementation uses two iterations. 
 In the first iteration, we add each element's value and its index to the table. 
-Then, in the second iteration we check if each element's complement (target - nums[i]target−nums[i]) 
-exists in the table. Beware that the complement must not be nums[i]nums[i] itself!
+Then, in the second iteration we check if each element's complement 
+(target - nums[i]) 
+exists in the table. 
+Beware that the complement must not be nums[i] itself!
 */
 
 public class Solution {
