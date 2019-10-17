@@ -30,16 +30,32 @@ class Solution {
 
             for (int i = 0; i < nums.size(); ++i)
             {
-                map.insert(pair<int, int>(nums[i], i));
+                m.insert(pair<int, int>(nums[i], i));
             }
 
             for(int i = 0; i < nums.size(); ++i)
             {
                 int complement = target - nums[i];
-                if (map.find(complement) && map.at(complement).second != i)
+                if (m.count(complement)>0 && m.at(complement) != i)
                 {
-                    solution.push_back(i, map.at(complement).second);
+                    solution.push_back(i); 
+                    solution.push_back(m.at(complement));
+                    return solution;
                 }
             }
+            return solution;
         }
-}
+};
+
+/*
+Complexity Analysis:
+
+Time complexity: O(n).
+We traverse the list containing nn elements exactly twice.
+Since the hash table reduces the lookup time to O(1),
+the time complexity is O(n).
+
+Space Complexity: O(n)
+The extra space required depends on the number of items stored in the hash table,
+which stores exactly n elements.
+*/
