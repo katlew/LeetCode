@@ -14,8 +14,9 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 
 It turns out we can do it in one-pass. 
-While we iterate and inserting elements into the table, 
-we also look back to check if current element's complement already exists in the table. 
+While we iterate and insert elements into the table, 
+we also look back to check if current element's complement already exists 
+in the table. 
 If it exists, we have found a solution and return immediately.
 */
 
@@ -42,7 +43,7 @@ public class Solution {
 Complexity Analysis
 
 Time complexity : O(n) 
-We traverse the list containing nn elements only once. 
+We traverse the list containing n elements only once. 
 Each look up in the table costs only O(1) time.
 
 Space complexity : O(n) 
