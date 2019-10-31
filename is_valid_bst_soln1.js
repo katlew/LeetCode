@@ -37,40 +37,30 @@ Then one repeats the same step recursively for left and right subtrees.
 */
 /**
  * Definition for a binary tree node.
- * public class TreeNode {
- *     public int val;
- *     public TreeNode left;
- *     public TreeNode right;
- *     public TreeNode(int x) { val = x; }
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
  * }
  */
-public class Solution {
-    public bool IsValidBST(TreeNode root) 
-    {
-        return helper(root, null, null);
-    }
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function(root)
+{
+    return helper(root, null, null);
+};
 
-    public bool helper(TreeNode node, int left, int right)
-    {
-        if (node == null) { return true; }
+var helper = function(node, left, right)
+{
+    if (!node) return true;
 
-        int val = node.val;
-        if (left != null && val <= left) {
-            return false;
-        }
-        if (right != null && val >= right){
-            return false;
-        }
+    if (left !== null && node.val <= left) return false;
+    if (right !== null && node.val >= right) return false;
 
-        if (helper(node.right, val, right) == false) {
-            return false;            
-        }
-        if (helper(node.left, left, val) == false) {
-            return false;
-        }
-        return true;
-    }
-}
+    return helper(node.left, left, node.val) 
+        && helper(node.right, node.val, right);
+};
 /*
 Complexity Analysis
 

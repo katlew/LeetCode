@@ -1,4 +1,4 @@
-/*
+"""
 Given a binary tree, determine if it is a valid binary search tree (BST).
 
 Assume a BST is defined as follows:
@@ -33,47 +33,30 @@ The idea above could be implemented as a recursion.
 One compares the node value with its upper and lower limits 
 if they are available. 
 Then one repeats the same step recursively for left and right subtrees.
+"""
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
-*/
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     public int val;
- *     public TreeNode left;
- *     public TreeNode right;
- *     public TreeNode(int x) { val = x; }
- * }
- */
-public class Solution {
-    public bool IsValidBST(TreeNode root) 
-    {
-        return helper(root, null, null);
-    }
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        return self.helper(root, None, None)
+    
+    def helper(self, root, left, right) -> bool:
+        if root is None: 
+            return True
+        if not left is None and left >= root.val:
+            return False
+        if not right is None and right <= root.val:
+            return False
+        return self.helper(root.left, left, root.val) and self.helper(root.right, root.val, right)
 
-    public bool helper(TreeNode node, int left, int right)
-    {
-        if (node == null) { return true; }
-
-        int val = node.val;
-        if (left != null && val <= left) {
-            return false;
-        }
-        if (right != null && val >= right){
-            return false;
-        }
-
-        if (helper(node.right, val, right) == false) {
-            return false;            
-        }
-        if (helper(node.left, left, val) == false) {
-            return false;
-        }
-        return true;
-    }
-}
-/*
+"""
 Complexity Analysis
 
 Time complexity : O(N) since we visit each node exactly once.
 Space complexity : O(N) since we keep up to the entire tree.
-*/
+"""
