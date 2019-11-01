@@ -17,7 +17,7 @@ Given binary tree [3,9,20,null,null,15,7],
    15   7
 return its depth = 3.
 
-Breadth First Search: Iterative Version
+Depth First Search: Iterative Version
 Traverse level by level and keep a counter to track level count
 """
 
