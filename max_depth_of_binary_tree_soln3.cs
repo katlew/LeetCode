@@ -17,7 +17,7 @@ Given binary tree [3,9,20,null,null,15,7],
    15   7
 return its depth = 3.
 
-Breadth First Search: Iterative Version
+Depth First Search: Iterative Version
 Traverse level by level and keep a counter to track level count
 */
 
@@ -32,16 +32,29 @@ Traverse level by level and keep a counter to track level count
  */
 public class Solution {
     public int MaxDepth(TreeNode root) {
-       int maxLevel = 0
-       Stack<Tuple> stack = new Stack<Tuple>();
+       int maxLevel = 0;
+       Stack<Tuple<TreeNode, int>> stack = new Stack<Tuple<TreeNode, int>>();
        if (root != null)
        {
-           stack.enqueue(new Tuple<TreeNode, int>(root, 1));
+           stack.Push(new Tuple<TreeNode, int>(root, 1));
        }
        while (stack.Count > 0)
        {
-           
+           Tuple<TreeNode, int> currStackItem = stack.Pop();
+           TreeNode currNode = currStackItem.Item1;
+           int currLevel = currStackItem.Item2;
+
+           maxLevel = Math.Max(currLevel, maxLevel);
+
+           if (currNode.left != null) {
+               stack.Push(new Tuple<TreeNode, int>(currNode.left, currLevel+ 1));
+           }
+           if (currNode.right != null) {
+               stack.Push(new Tuple<TreeNode, int>(currNode.right, currLevel+1));
+           }
        }
+       
+       return maxLevel;
     }
 }
 
